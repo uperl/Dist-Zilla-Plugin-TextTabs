@@ -2,7 +2,7 @@ package Dist::Zilla::Plugin::TextTabs;
 
 use Moose;
 use v5.10;
-use Text::Tabs qw( expand unexpand $tabstop );
+use Text::Tabs qw( expand unexpand );
 
 # ABSTRACT: Expand or unexpand tabs in your dist
 # VERSION
@@ -15,11 +15,11 @@ with 'Dist::Zilla::Role::FileMunger',
 
 use namespace::autoclean;
 
-#has tabstop => (
-#  is      => 'ro',
-#  isa     => 'Int',
-#  default => 8,
-#);
+has tabstop => (
+  is      => 'ro',
+  isa     => 'Int',
+  default => 8,
+);
 
 has unexpand => (
   is      => 'ro',
@@ -36,6 +36,7 @@ sub munge_files
 sub munge_file
 {
   my($self, $file) = @_;
+  local $Text::Tabs::tabstop = $self->tabstop;
   $file->content(join("\n", map { $self->unexpand ? unexpand $_ : expand $_ } split /\n/, $file->content));
   return;
 }
