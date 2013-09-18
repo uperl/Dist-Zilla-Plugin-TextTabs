@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - add installer attribute
 
 0.01      2013-09-18 10:22:53 -0400
   - initial version

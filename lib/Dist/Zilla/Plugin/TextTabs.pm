@@ -29,6 +29,16 @@ if set to true, then an unexpand is used on all the targeted files, that is spac
 right length are converted into an equivalent number of tabs.  The default is false, or
 expand mode.
 
+=head2 installer
+
+Instead of doing its work during the usual file munger stage, if this
+attribute is true (the default is false), then this plugin will munge
+just the C<Makefile.PL> or C<Build.PL> (or both if you have both) files
+during the C<InstallTool> phase.  This allows you to remove nauty
+tabs from the installer than may have been put there by a nauty
+C<InstallTool> plugin (take care to put C<[TextTabs]> in your C<dist.ini>
+after the nauty installer plugin).
+
 =head1 SEE ALSO
 
 L<Text::Tabs>
@@ -38,7 +48,8 @@ L<Text::Tabs>
 with 'Dist::Zilla::Role::FileMunger',
      'Dist::Zilla::Role::FileFinderUser' => {
        default_finders => [ ':InstallModules', ':ExecFiles' ],
-     }
+     },
+     'Dist::Zilla::Role::InstallTool',
 ;
 
 use namespace::autoclean;
@@ -55,18 +66,37 @@ has unexpand => (
   default => 0,
 );
 
+has installer => (
+  is      => 'ro',
+  isa     => 'Bool',
+  default => 0,
+);
+
 sub munge_files
 {
   my($self) = @_;
+  return if $self->installer;
   $self->munge_file($_) for @{ $self->found_files };
 }
 
 sub munge_file
 {
   my($self, $file) = @_;
+  $self->log(($self->unexpand ? 'un' : '') . 'expanding ' . $file->name);
   local $Text::Tabs::tabstop = $self->tabstop;
   $file->content(join("\n", map { $self->unexpand ? unexpand $_ : expand $_ } split /\n/, $file->content));
   return;
+}
+
+sub setup_installer
+{
+  my($self) = @_;
+  return unless $self->installer;
+  foreach my $file (@{ $self->zilla->files })
+  {
+    next unless $file->name =~ /^(Makefile|Build).PL$/;
+    $self->munge_file($file);
+  }
 }
 
 __PACKAGE__->meta->make_immutable;

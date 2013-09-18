@@ -24,6 +24,16 @@ if set to true, then an unexpand is used on all the targeted files, that is spac
 right length are converted into an equivalent number of tabs.  The default is false, or
 expand mode.
 
+## installer
+
+Instead of doing its work during the usual file munger stage, if this
+attribute is true (the default is false), then this plugin will munge
+just the `Makefile.PL` or `Build.PL` (or both if you have both) files
+during the `InstallTool` phase.  This allows you to remove nauty
+tabs from the installer than may have been put there by a nauty
+`InstallTool` plugin (take care to put `[TextTabs]` in your `dist.ini`
+after the nauty installer plugin).
+
 # SEE ALSO
 
 [Text::Tabs](http://search.cpan.org/perldoc?Text::Tabs)
