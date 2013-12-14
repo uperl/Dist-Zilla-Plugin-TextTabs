@@ -10,7 +10,7 @@ Expand or unexpand tabs in your dist
 
 # DESCRIPTION
 
-This [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla) plugin expands or unexpands tabs using [Text::Tab](http://search.cpan.org/perldoc?Text::Tab).
+This [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) plugin expands or unexpands tabs using [Text::Tab](https://metacpan.org/pod/Text::Tab).
 
 # ATTRIBUTES
 
@@ -36,7 +36,7 @@ after the nauty installer plugin).
 
 # SEE ALSO
 
-[Text::Tabs](http://search.cpan.org/perldoc?Text::Tabs)
+[Text::Tabs](https://metacpan.org/pod/Text::Tabs)
 
 # AUTHOR
 
