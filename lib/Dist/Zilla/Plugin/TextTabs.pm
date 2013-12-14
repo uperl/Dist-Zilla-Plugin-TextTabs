@@ -1,7 +1,6 @@
 package Dist::Zilla::Plugin::TextTabs;
 
 use Moose;
-use v5.10;
 use Text::Tabs qw( expand unexpand );
 
 # ABSTRACT: Expand or unexpand tabs in your dist
