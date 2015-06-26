@@ -1,4 +1,4 @@
-# Dist::Zilla::Plugin::TextTabs
+# Dist::Zilla::Plugin::TextTabs [![Build Status](https://secure.travis-ci.org/plicease/Dist-Zilla-Plugin-TextTabs.png)](http://travis-ci.org/plicease/Dist-Zilla-Plugin-TextTabs)
 
 Expand or unexpand tabs in your dist
 
