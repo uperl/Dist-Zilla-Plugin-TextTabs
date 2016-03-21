@@ -10,12 +10,9 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
-  Dist::Zilla::Role::FileFinderUser
-  Dist::Zilla::Role::FileMunger
-  Dist::Zilla::Role::InstallTool
+  Dist::Zilla
   ExtUtils::MakeMaker
   Moose
-  Test::DZil
   Test::More
   Text::Tabs
   namespace::autoclean
