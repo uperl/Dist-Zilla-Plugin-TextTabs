@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Do just one call of expand or unexpand
 
 0.03      2013-12-13 21:36:35 -0500
   - Support Perl 5.8

@@ -83,7 +83,7 @@ sub munge_file
   my($self, $file) = @_;
   $self->log(($self->unexpand ? 'un' : '') . 'expanding ' . $file->name);
   local $Text::Tabs::tabstop = $self->tabstop;
-  $file->content(join("\n", map { $self->unexpand ? unexpand $_ : expand $_ } split /\n/, $file->content));
+  $file->content(join("\n", map { $self->unexpand ? unexpand @$_ : expand @$_ } [split /\n/, $file->content]));
   return;
 }
 
