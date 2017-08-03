@@ -1,9 +1,5 @@
-use strict;
-use warnings;
-use Test::More 0.88;
+use Test2::V0 -no_srand => 1;
 use Test::DZil;
-
-plan tests => 1;
 
 my $tzil = Builder->from_config(
   { dist_root => 'corpus/DZT2' },
@@ -26,3 +22,5 @@ my($file) = grep { $_->name =~ /DZT2\.pm/ } @{ $tzil->files };
 
 like $file->content, qr{\t}, "tabs here!";
 note $file->content;
+
+done_testing;
