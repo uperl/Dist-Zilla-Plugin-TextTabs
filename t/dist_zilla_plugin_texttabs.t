@@ -2,6 +2,7 @@ use 5.014;
 use Test2::V0 -no_srand => 1;
 use Dist::Zilla::Plugin::TextTabs;
 use Test::DZil;
+use experimental qw( postderef );
 
 subtest 'expand' => sub {
 
@@ -22,7 +23,7 @@ subtest 'expand' => sub {
 
   $tzil->build;
 
-  my($file) = grep { $_->name =~ /DZT1\.pm/ } @{ $tzil->files };
+  my($file) = grep { $_->name =~ /DZT1\.pm/ } $tzil->files->@*;
 
   unlike $file->content, qr{\t}, "no tabs here!";
   note $file->content;
@@ -47,7 +48,7 @@ subtest 'installer' => sub {
 
   $tzil->build;
 
-  my($file) = grep { $_->name =~ /Makefile\.PL/ } @{ $tzil->files };
+  my($file) = grep { $_->name =~ /Makefile\.PL/ } $tzil->files->@*;
 
   unlike $file->content, qr{\t}, "no tabs here!";
   note $file->content;
@@ -72,7 +73,7 @@ subtest 'tabstop' => sub {
 
   $tzil->build;
 
-  my($file) = grep { $_->name =~ /DZT1\.pm/ } @{ $tzil->files };
+  my($file) = grep { $_->name =~ /DZT1\.pm/ } $tzil->files->@*;
 
   like $file->content, qr{^    print}m, "no tabs here!";
   note $file->content;
@@ -98,7 +99,7 @@ subtest 'unexpand' => sub {
 
   $tzil->build;
 
-  my($file) = grep { $_->name =~ /DZT2\.pm/ } @{ $tzil->files };
+  my($file) = grep { $_->name =~ /DZT2\.pm/ } $tzil->files->@*;
 
   like $file->content, qr{\t}, "tabs here!";
   note $file->content;
