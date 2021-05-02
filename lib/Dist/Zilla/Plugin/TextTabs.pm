@@ -1,6 +1,7 @@
 use strict;
 use warnings;
-use 5.014;
+use 5.020;
+use experimental qw( postderef );
 
 package Dist::Zilla::Plugin::TextTabs {
 
@@ -78,7 +79,7 @@ L<Text::Tabs>
   {
     my($self) = @_;
     return if $self->installer;
-    $self->munge_file($_) for @{ $self->found_files };
+    $self->munge_file($_) for $self->found_files->@*;
   }
 
   sub munge_file
@@ -94,7 +95,7 @@ L<Text::Tabs>
   {
     my($self) = @_;
     return unless $self->installer;
-    foreach my $file (@{ $self->zilla->files })
+    foreach my $file ($self->zilla->files->@*)
     {
       next unless $file->name =~ /^(Makefile|Build).PL$/;
       $self->munge_file($file);
