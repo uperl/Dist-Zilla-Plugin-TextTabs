@@ -1,4 +1,4 @@
-# Dist::Zilla::Plugin::TextTabs ![linux](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/linux/badge.svg) ![macos](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/macos/badge.svg) ![windows](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/msys2-mingw/badge.svg)
+# Dist::Zilla::Plugin::TextTabs ![linux](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/linux/badge.svg) ![macos](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/macos/badge.svg) ![windows](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/windows/badge.svg)
 
 Expand or unexpand tabs in your dist
 
