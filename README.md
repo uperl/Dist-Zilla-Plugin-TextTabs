@@ -1,4 +1,4 @@
-# Dist::Zilla::Plugin::TextTabs ![linux](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/linux/badge.svg) ![macos](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/macos/badge.svg) ![windows](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/windows/badge.svg) ![cygwin](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/msys2-mingw/badge.svg)
+# Dist::Zilla::Plugin::TextTabs ![linux](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/linux/badge.svg) ![macos](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/macos/badge.svg) ![windows](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/windows/badge.svg) ![msys2-mingw](https://github.com/plicease/Dist-Zilla-Plugin-TextTabs/workflows/msys2-mingw/badge.svg)
 
 Expand or unexpand tabs in your dist
 
@@ -46,7 +46,7 @@ Graham Ollis <plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Graham Ollis.
+This software is copyright (c) 2013-2024 by Graham Ollis.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
